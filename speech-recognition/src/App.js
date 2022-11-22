@@ -1,42 +1,81 @@
 import './App.css';
-import { person } from '@jsonforms/examples';
-import {
-  materialRenderers,
-  materialCells,
-} from '@jsonforms/material-renderers';
-import React, { useState } from 'react';
-import { JsonForms } from '@jsonforms/react';
+import React, { useEffect, useState } from 'react';
+import FallentreeForm from './pages/FallentreeForm'
+import ShopliftingForm from './pages/ShopliftingForm';
 
 function App() {
 
-  const schema = person.schema;
-  const uischema = person.uischema;
-  const initialData = person.data;
+  const [data, setData] = useState('');
+  const LOCAL_ADDRESS = 'http://127.0.0.1:8081';
+  const SERVICE_ADDRESS = LOCAL_ADDRESS;
+  const [isLoading, setLoading] = useState(true);
+  const [chosenIncident, setIncident] = useState("");
+  const [count, setCount] = useState(0);
 
-  const [data, setData] = useState(initialData);
 
+
+  useEffect(() => {
+   const interval = setInterval(() => {
+      fetchData();   
+      console.log("count ",count);
+
+    }, 5000); 
+    return () => {
+      clearInterval(interval);
+    }
+    }, []);
+
+
+  useEffect(() => {
+    console.log("chosenEffect ", chosenIncident);
+    window.localStorage.setItem('chosenIncident', chosenIncident);
+     console.log("local ", window.localStorage.getItem('chosenIncident'));
+  }, [chosenIncident]);
+
+  useEffect(() => {
+    console.log("chosenEffect2 ", chosenIncident);
+    const data = window.localStorage.getItem('chosenIncident');
+     console.log("data ", data);
+    setIncident(data);
+  }, []);  
+
+  const chooseIncident = (incidentSelected) => {
+    setIncident(incidentSelected);
+  } 
+
+  const fetchData = async () => {
+    try {
+      let response = await fetch(
+        SERVICE_ADDRESS + '/rest/speechservice/getdata',
+      );
+      let json = await response.text();
+      setData(json);
+      console.log("onko tämä json     ",json);
+     
+  
+    } catch (error) {
+      console.log("onko tämä error", error);
+    }
+  };
 
   return (
     <div className="App">
     <div>
       <h1>Valitse oikea riskinarviopuu</h1>
-      <JsonForms
-        schema={schema}
-        uischema={uischema}
-        data={data}
-        renderers={materialRenderers}
-        cells={materialCells}
-        onChange={({ data, errors }) => setData(data)}
-      />
+  
+        <button onClick={(e) => chooseIncident(e.target.value)} value="puu">Kaatunut puu</button>
+        <button onClick={(e) => chooseIncident(e.target.value)} value="myymala">Myymälävarkaus</button>
+      
+
+      <p>Tämä tulee backendistä: {data}</p>
+
+
+    </div>
+    <div>{chosenIncident=== "puu" ? <FallentreeForm /> : chosenIncident === "myymala" ? <ShopliftingForm /> : "" }
 
     </div>
 
-    <div>
-      <li style={{listStyleType:"none"}}>
-        <ul>Kaatunut puu</ul>
-        <ul>Myymälävarkaus</ul>
-      </li>
-    </div>
+    
    
 
 
