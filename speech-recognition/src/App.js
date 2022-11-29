@@ -8,6 +8,7 @@ function App() {
   const [data, setData] = useState('');
   const [id, setId] = useState();
   const [foundWords, addFoundWords] = useState([]);
+  const [jsonList, setList] = useState([]);
   const LOCAL_ADDRESS = 'http://127.0.0.1:8080';
   const SERVICE_ADDRESS = LOCAL_ADDRESS;
   const [isLoading, setLoading] = useState(true);
@@ -66,13 +67,15 @@ function App() {
   const fetchData = async () => {
     try {
       let response = await fetch(
-        SERVICE_ADDRESS + '/rest/speechservice/getdata',
+        SERVICE_ADDRESS + '/rest/speechservice/getvalues',
       );
-      let json = await response.text();
-      setData(json); 
-      setId(json);
-      highlightAnswer(json); 
-      addKeywordsToList(json);
+      let json = await response.json();
+      setData(json[0].id); 
+      setId(json[0].id);
+      console.log(json);
+      setList(json);
+      highlightAnswer(json[0].id); 
+      addKeywordsToList(json[0].foundWords);
        
       console.log("onko tämä json     ",json);
     } catch (error) {
@@ -127,8 +130,8 @@ function App() {
     <h2>Found keywords:</h2>
    
     <ul>
-    {foundWords.map(item => (
-      <li key={item}>{item}</li>
+    {foundWords.map((item, index) => (
+      <li key={index}>{item}</li>
     ))}
   </ul>
     </div>
