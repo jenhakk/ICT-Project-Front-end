@@ -7,7 +7,7 @@ function ShopliftingForm() {
     const { register, handleSubmit, watch, setValue} = useForm();
     
     const onSubmit = data => {saveFormData(data)};
-    console.log("mikä tämä on ",formData);
+    console.log("Submitted data ",formData);
 
     useFormPersist("storageKey", {
       watch, 
@@ -25,8 +25,8 @@ function ShopliftingForm() {
 
             <label>Onko väkivallan uhkaa?</label>
                 < br/>
-            <label ><input {...register("vakivallanUhka")} type="radio" value="kylla" id="211" />Kyllä</label>
-            <label><input {...register("vakivallanUhka")} type="radio" value="ei" id="212" />Ei</label>
+            <label id="211" ><input {...register("vakivallanUhka")} type="radio" value="kylla" />Kyllä</label>
+            <label id="212"><input {...register("vakivallanUhka")} type="radio" value="ei" />Ei</label>
             
                 <br />
                 <br />
@@ -37,8 +37,8 @@ function ShopliftingForm() {
                    
                     <label>Onko henkilövahinkoa?</label>
                         < br/>
-                    <label ><input {...register("ihmisVahinkoa")} type="radio" value="kylla" id="21111" />Kyllä</label>
-                    <label><input {...register("ihmisVahinkoa")} type="radio" value="ei" id="21112" />Ei</label>
+                    <label id="21111" ><input {...register("ihmisVahinkoa")} type="radio" value="kylla" />Kyllä</label>
+                    <label id="21112"><input {...register("ihmisVahinkoa")} type="radio" value="ei" />Ei</label>
                         <br />
                         <br />
                         {watchIhmisvahinkoa === "kylla" && (
@@ -46,18 +46,18 @@ function ShopliftingForm() {
                     <div>
                         <label>Kuinka monta vahingoittunutta?</label>
                         < br/>
-                        <label><input {...register("vahingoittunutlkm")} type="radio" value="1" id="2111111" />1</label>
-                        <label><input {...register("vahingoittunutlkm")} type="radio" value="2" id="2111112" />2</label>
-                        <label><input {...register("vahingoittunutlkm")} type="radio" value="3" id="2111113" />3</label>
-                        <label><input {...register("vahingoittunutlkm")} type="radio" value="useita" id="2111114" />Useita</label>
+                        <label id="2111111"><input {...register("vahingoittunutlkm")} type="radio" value="1" />1</label>
+                        <label id="2111112"><input {...register("vahingoittunutlkm")} type="radio" value="2" />2</label>
+                        <label id="2111113"><input {...register("vahingoittunutlkm")} type="radio" value="3" />3</label>
+                        <label id="2111114"><input {...register("vahingoittunutlkm")} type="radio" value="useita" />Useita</label>
                             <br />
                             <br />
                         
                         <label>Minkälaista vahinkoa?</label>
                             < br/>
-                        <label><input {...register("vahinko", { required: true })} type="radio" value="lieva" id="2111121" />Lievästi vahingoittunut</label>
-                        <label><input {...register("vahinko", { required: true })} type="radio" value="vakava" id="2111122" />Vakavasti vahingoittunut</label>
-                        <label><input {...register("vahinko", { required: true })} type="radio" value="eloton" id="2111123" />Eloton</label>
+                        <label id="2111121"><input {...register("vahinko", { required: true })} type="radio" value="lieva" />Lievästi vahingoittunut</label>
+                        <label id="2111122"><input {...register("vahinko", { required: true })} type="radio" value="vakava" />Vakavasti vahingoittunut</label>
+                        <label id="2111123"><input {...register("vahinko", { required: true })} type="radio" value="eloton"  />Eloton</label>
                             <br />
                             <br />
 
@@ -66,10 +66,10 @@ function ShopliftingForm() {
                     
                     <label>Onko asetta?</label>
                         < br/>
-                    <label ><input {...register("ase")} type="radio" value="tera" id="21121" />Teräase</label>
-                    <label><input {...register("ase")} type="radio" value="ampuma" id="21122" />Ampuma-ase</label>
-                    <label><input {...register("ase")} type="radio" value="lyoma" id="21123" />Lyömäase</label>
-                    <label><input {...register("ase")} type="radio" value="ei" id="21124" />Ei asetta</label>
+                    <label  id="21121"><input {...register("ase")} type="radio" value="tera" />Teräase</label>
+                    <label id="21122"><input {...register("ase")} type="radio" value="ampuma" />Ampuma-ase</label>
+                    <label id="21123"><input {...register("ase")} type="radio" value="lyoma" />Lyömäase</label>
+                    <label id="21124"><input {...register("ase")} type="radio" value="ei" />Ei asetta</label>
                         <br />
                         <br />
 
@@ -79,8 +79,8 @@ function ShopliftingForm() {
                 )}
                 <label>Onko tekijä tiedossa?</label>
                     < br/>
-                <label ><input {...register("tekijaTiedossa")} type="radio" value="kylla" id="221" />Kyllä</label>
-                <label><input {...register("tekijaTiedossa")} type="radio" value="ei" id="222" />Ei</label>
+                <label id="221"><input {...register("tekijaTiedossa")} type="radio" value="kylla" />Kyllä</label>
+                <label id="222"><input {...register("tekijaTiedossa")} type="radio" value="ei" />Ei</label>
                 
                     <br />
                     <br />
@@ -89,17 +89,17 @@ function ShopliftingForm() {
                     <div>
                         <label>Kuinka monta tekijää?</label>
                         < br/>
-                        <label><input {...register("tekijoidenlkm")} type="radio" value="1" id="22111" />1</label>
-                        <label><input {...register("tekijoidenlkm")} type="radio" value="2" id="22112" />2</label>
-                        <label><input {...register("tekijoidenlkm")} type="radio" value="3" id="22113" />3</label>
-                        <label><input {...register("tekijoidenlkm")} type="radio" value="useita" id="22114" />Useita</label>
+                        <label id="22111"><input {...register("tekijoidenlkm")} type="radio" value="1" />1</label>
+                        <label id="22112"><input {...register("tekijoidenlkm")} type="radio" value="2" />2</label>
+                        <label id="22113"><input {...register("tekijoidenlkm")} type="radio" value="3" />3</label>
+                        <label id="22114"><input {...register("tekijoidenlkm")} type="radio" value="useita" />Useita</label>
                             <br />
                             <br />
                         
                         <label>Onko tekijä paikalla?</label>
                             < br/>
-                        <label><input {...register("tekijaPaikalla", { required: true })} type="radio" value="kylla" id="22121" />Kyllä</label>
-                        <label><input {...register("tekijaPaikalla", { required: true })} type="radio" value="ei" id="22122" />Ei</label>
+                        <label id="22121"><input {...register("tekijaPaikalla", { required: true })} type="radio" value="kylla" />Kyllä</label>
+                        <label id="22122"><input {...register("tekijaPaikalla", { required: true })} type="radio" value="ei" />Ei</label>
                         
                             <br />
                             <br />
