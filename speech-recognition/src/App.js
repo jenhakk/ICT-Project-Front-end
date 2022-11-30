@@ -31,7 +31,7 @@ function App() {
    const interval = setInterval(() => {
       fetchData();  
 
-    }, 5000); 
+    }, 7000); 
     return () => {
       clearInterval(interval);
     }
@@ -57,6 +57,9 @@ function App() {
   const chooseIncident = (incidentSelected) => {
     setIncident(incidentSelected);       
     buttons[id-1].style.backgroundColor = "white";
+  
+    console.log("61", chosenIncident);
+    selectIncident();
       }
 
   const addKeywordsToList = (id) => {
@@ -82,6 +85,45 @@ function App() {
       console.log("onko tämä error", error);
     }
   };
+
+  const selectIncident = async () => {
+    console.error("chosen incident is ", chosenIncident);
+    try {
+      let response = await fetch(
+        'http://10.0.2.2:8080/rest/speechservice/selectincident',
+        {
+          method: 'POST',
+          headers: {'Content-Type': 'text/plain'},
+          body: chosenIncident,
+        },
+      );
+
+      // let responseData = await response.json();
+      
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  async function selectInc(id){
+    console.error("chosen incident is ", id);
+    try {
+      let response = await fetch(
+        'http://10.0.2.2:8080/rest/speechservice/selectincident',
+        {
+          method: 'POST',
+          headers: {'Content-Type': 'text/plain'},
+          body: id,
+        },
+      );
+
+      // let responseData = await response.json();
+      
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
 
   const changeButtonColor = () => {
     for (let i = 0; i < buttons.length; i++) {
@@ -114,7 +156,13 @@ function App() {
     <div className="top-content">
       <h1>Valitse oikea riskinarviopuu</h1>
   
-        <button onClick={(e) => chooseIncident(e.target.value)} value="puu" id="1">Kaatunut puu</button>
+        <button onClick={(e) => {
+          {
+            chooseIncident(e.target.value)
+          };
+          {
+             selectInc(1)
+            }}} value="puu" id="1">Kaatunut puu</button>
         <button onClick={(e) => chooseIncident(e.target.value)} value="myymala" id="2">Myymälävarkaus</button>
       
 
