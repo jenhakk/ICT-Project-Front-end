@@ -31,7 +31,7 @@ function App() {
    const interval = setInterval(() => {
       fetchData();  
 
-    }, 7000); 
+    }, 3000); 
     return () => {
       clearInterval(interval);
     }
@@ -86,30 +86,11 @@ function App() {
     }
   };
 
-  const selectIncident = async () => {
-    console.error("chosen incident is ", chosenIncident);
-    try {
-      let response = await fetch(
-        'http://127.0.0.1:8080/rest/speechservice/selectincident',
-        {
-          method: 'POST',
-          headers: {'Content-Type': 'text/plain'},
-          body: chosenIncident,
-        },
-      );
-
-      // let responseData = await response.json();
-      
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   async function selectInc(id){
     console.error("chosen incident is ", id);
     try {
       let response = await fetch(
-        'http://127.0.0.1:8080/rest/speechservice/selectincident/',
+        'http://127.0.0.1:8080/rest/speechservice/selectincident',
         {
           method: 'POST',
           headers: {'Content-Type': 'text/plain'},
@@ -163,7 +144,13 @@ function App() {
           {
              selectInc("1")
             }}} value="puu" id="1">Kaatunut puu</button>
-        <button onClick={(e) => chooseIncident(e.target.value)} value="myymala" id="2">Myymälävarkaus</button>
+        <button onClick={(e) => {
+          {
+            chooseIncident(e.target.value)
+          };
+          {
+             selectInc("2")
+            }}} value="myymala" id="2">Myymälävarkaus</button>
       
 
       <p>Tämä tulee backendistä: {data}</p>
