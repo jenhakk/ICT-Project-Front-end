@@ -54,12 +54,12 @@ function FallentreeForm() {
 
                 <label>Mitä liikennettä?</label>
                     < br/>
-                <label id="13111"><input {...register("mitaLiikennetta")} type="radio" value="moottoritie"/>Moottoritie</label>
-                <label id="13112"><input {...register("mitaLiikennetta")} type="radio" value="maantie" />Maantie</label>
-                <label id="13113"><input {...register("mitaLiikennetta")} type="radio" value="taajama" />Taajama</label>
-                <label id="13114"><input {...register("mitaLiikennetta")} type="radio" value="junaraiteet" />Junaraiteet</label>
-                <label id="13115" ><input {...register("mitaLiikennetta")} type="radio" value="pihatie"/>Pihatie</label>
-                <label id="13116"><input {...register("mitaLiikennetta")} type="radio" value="kevyt" />Kevyen liikenteen väylä</label>
+                <label id="141"><input {...register("mitaLiikennetta")} type="radio" value="moottoritie"/>Moottoritie</label>
+                <label id="142"><input {...register("mitaLiikennetta")} type="radio" value="maantie" />Maantie</label>
+                <label id="143"><input {...register("mitaLiikennetta")} type="radio" value="taajama" />Taajama</label>
+                <label id="144"><input {...register("mitaLiikennetta")} type="radio" value="junaraiteet" />Junaraiteet</label>
+                <label id="145" ><input {...register("mitaLiikennetta")} type="radio" value="pihatie"/>Pihatie</label>
+                <label id="146"><input {...register("mitaLiikennetta")} type="radio" value="kevyt" />Kevyen liikenteen väylä</label>
                     <br />
                     <br />
               </div>
@@ -67,8 +67,8 @@ function FallentreeForm() {
           
           <label>Onko ihmisvahinkoa?</label>
               < br/>
-          <label id="141"><input {...register("ihmisvahinko", { required: true })} type="radio" value="kylla" />Kyllä</label>
-          <label  id="142"><input {...register("ihmisvahinko", { required: true })} type="radio" value=" ei" />Ei</label>
+          <label id="151"><input {...register("ihmisvahinko", { required: true })} type="radio" value="kylla" />Kyllä</label>
+          <label  id="152"><input {...register("ihmisvahinko", { required: true })} type="radio" value=" ei" />Ei</label>
               <br />
               <br />
 
@@ -77,18 +77,18 @@ function FallentreeForm() {
               
               <label>Monta ihmistä on vahingoittunut?</label>
                   < br/>
-              <label id="14111"><input {...register("ihmistenlkm")} type="radio" value="1" />1</label>
-              <label id="14112"><input {...register("ihmistenlkm")} type="radio" value=" 2" />2</label>
-              <label id="14113"><input {...register("ihmistenlkm")} type="radio" value=" 3" />3</label>
-              <label id="14114"><input {...register("ihmistenlkm")} type="radio" value=" useita"/>Useita</label>
+              <label id="161"><input {...register("ihmistenlkm")} type="radio" value="1" />1</label>
+              <label id="162"><input {...register("ihmistenlkm")} type="radio" value=" 2" />2</label>
+              <label id="163"><input {...register("ihmistenlkm")} type="radio" value=" 3" />3</label>
+              <label id="164"><input {...register("ihmistenlkm")} type="radio" value=" useita"/>Useita</label>
                   <br />
                   <br />
 
                   <label>Millaista vahinkoa?</label>
                   < br/>
-              <label id="14121" ><input {...register("mitaVahinkoa")} type="radio" value="lieva"/>Lievästi loukkaantunut</label>
-              <label id="14122"><input {...register("mitaVahinkoa")} type="radio" value=" vakava" />Vakavasti loukkaantunut</label>
-              <label id="14123"><input {...register("mitaVahinkoa")} type="radio" value=" eloton" />Eloton</label>
+              <label id="171" ><input {...register("mitaVahinkoa")} type="radio" value="lieva"/>Lievästi loukkaantunut</label>
+              <label id="172"><input {...register("mitaVahinkoa")} type="radio" value=" vakava" />Vakavasti loukkaantunut</label>
+              <label id="173"><input {...register("mitaVahinkoa")} type="radio" value=" eloton" />Eloton</label>
             
                   <br />
                   <br />
