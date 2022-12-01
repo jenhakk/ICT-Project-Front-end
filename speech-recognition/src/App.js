@@ -109,7 +109,7 @@ function App() {
     console.error("chosen incident is ", id);
     try {
       let response = await fetch(
-        'http://127.0.0.1:8080/rest/speechservice/selectincident',
+        'http://127.0.0.1:8080/rest/speechservice/selectincident/',
         {
           method: 'POST',
           headers: {'Content-Type': 'text/plain'},
