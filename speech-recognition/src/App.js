@@ -31,7 +31,7 @@ function App() {
    const interval = setInterval(() => {
       fetchData();  
 
-    }, 5000); 
+    }, 3000); 
     return () => {
       clearInterval(interval);
     }
@@ -57,6 +57,9 @@ function App() {
   const chooseIncident = (incidentSelected) => {
     setIncident(incidentSelected);       
     buttons[id-1].style.backgroundColor = "white";
+  
+    console.log("61", chosenIncident);
+    //selectIncident();
       }
 
   const addKeywordsToList = (id) => {
@@ -82,6 +85,26 @@ function App() {
       console.log("onko tämä error", error);
     }
   };
+
+  async function selectInc(id){
+    console.error("chosen incident is ", id);
+    try {
+      let response = await fetch(
+        'http://127.0.0.1:8080/rest/speechservice/selectincident',
+        {
+          method: 'POST',
+          headers: {'Content-Type': 'text/plain'},
+          body: id,
+        },
+      );
+
+      // let responseData = await response.json();
+      
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
 
   const changeButtonColor = () => {
     for (let i = 0; i < buttons.length; i++) {
@@ -114,8 +137,20 @@ function App() {
     <div className="top-content">
       <h1>Valitse oikea riskinarviopuu</h1>
   
-        <button onClick={(e) => chooseIncident(e.target.value)} value="puu" id="1">Kaatunut puu</button>
-        <button onClick={(e) => chooseIncident(e.target.value)} value="myymala" id="2">Myymälävarkaus</button>
+        <button onClick={(e) => {
+          {
+            chooseIncident(e.target.value)
+          };
+          {
+             selectInc("1")
+            }}} value="puu" id="1">Kaatunut puu</button>
+        <button onClick={(e) => {
+          {
+            chooseIncident(e.target.value)
+          };
+          {
+             selectInc("2")
+            }}} value="myymala" id="2">Myymälävarkaus</button>
       
 
       <p>Tämä tulee backendistä: {data}</p>
