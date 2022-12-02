@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   align-items: center;
+
  
 
 }
@@ -11,12 +12,58 @@
 
 }
 
+.buttons {
+  padding-top:30px;
+  width: 30%;
+  margin:auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  height:40px;
+  padding:10px;
+  width:150px;
+  border-radius: 5px;
+  border: 2px solid #98E78A;
+  background-color: white;
+  font-size: 16px;
+
+}
+
+.form {
+  background-color: white;
+  padding:25px;
+  border-radius:10px;
+  font-size: 17px;
+  
+}
+.label{
+  font-weight: 500;
+  
+}
+.submit {
+  height:40px;
+  padding:10px;
+  width:100px;
+  border-radius: 5px;
+  border: 2px solid #79D2F3;
+  background-color: #79D2F3;
+  font-size: 16px;
+}
 .bottom-content {
   justify-content: space-evenly;
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
-
-
+}
+ul{
+  border: 1px solid black;
+  background-color: white;
+  text-align: left;
+}
+li {
+  list-style: none;
+ 
 }
 

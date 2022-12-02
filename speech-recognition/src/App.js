@@ -63,8 +63,13 @@ function App() {
       }
 
   const addKeywordsToList = (id) => {
-    addFoundWords(foundWords=> [...foundWords, id]);
-  }
+    console.log("id ", id);
+    console.log("lista ", foundWords);
+    if(id != null)  {
+
+      addFoundWords(foundWords=> [...foundWords, id]);
+  };
+}
 
   //Fetching String data from backend
   const fetchData = async () => {
@@ -77,9 +82,9 @@ function App() {
       setId(json[0].id);
       console.log(json);
       setList(json);
-      highlightAnswer(json[0].id); 
+      highlightAnswer(json[0].id);
       addKeywordsToList(json[0].foundWords);
-       
+     
       console.log("onko tämä json     ",json);
     } catch (error) {
       console.log("onko tämä error", error);
@@ -111,7 +116,7 @@ function App() {
       // console.log("button ", buttons[i].id);
       if (buttons[i].id === data) {
         
-        buttons[i].style.backgroundColor = "lightblue";
+        buttons[i].style.backgroundColor = "#98E78A";
       }
       setCount(1);
     }
@@ -137,21 +142,22 @@ function App() {
     <div className="top-content">
       <h1>Valitse oikea riskinarviopuu</h1>
   
-        <button onClick={(e) => {
+    <div className="buttons">
+        <button className="button" onClick={(e) => {
           {
             chooseIncident(e.target.value)
           };
           {
              selectInc("1")
             }}} value="puu" id="1">Kaatunut puu</button>
-        <button onClick={(e) => {
+        <button className="button" onClick={(e) => {
           {
             chooseIncident(e.target.value)
           };
           {
              selectInc("2")
             }}} value="myymala" id="2">Myymälävarkaus</button>
-      
+      </div>
 
       <p>Tämä tulee backendistä: {data}</p>
 
@@ -162,7 +168,7 @@ function App() {
 
     </div>
     <div>
-    <h2>Found keywords:</h2>
+    <h3>Löytyneitä avainsanoja:</h3>
    
     <ul>
     {foundWords.map((item, index) => (

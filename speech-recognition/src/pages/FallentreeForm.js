@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
 import useFormPersist from 'react-hook-form-persist';
+import '../App.css';
 
 
 function FallentreeForm() {
@@ -22,9 +23,9 @@ function FallentreeForm() {
     const watchIhmisvahinkoa = watch("ihmisvahinko");
       
       return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className='form' onSubmit={handleSubmit(onSubmit)}>
 
-            <label>Mikä on puiden lukumäärä?</label>
+            <label className='label'>Mikä on puiden lukumäärä?</label>
                 < br/>
             <label id="111"><input {...register("puidenlkm")} type="radio" value="1" />1</label>
             <label id="112"><input {...register("puidenlkm")} type="radio" value="2" />2</label>
@@ -33,7 +34,7 @@ function FallentreeForm() {
                 <br />
                 <br />
 
-            <label>Missä puu sijaitsee?</label>
+            <label className='label' >Missä puu sijaitsee?</label>
                 < br/>
             <label id="121"><input {...register("sijainti")} type="radio" value="yksityinen" />Yksityinen alue</label>
             <label id="122"><input {...register("sijainti")} type="radio" value="julkinen" />Julkinen alue</label>
@@ -41,7 +42,7 @@ function FallentreeForm() {
                 <br />
                 <br />    
     
-          <label>Estääkö tapahtuma liikennettä?</label>
+          <label className='label'>Estääkö tapahtuma liikennettä?</label>
                 < br/>
           <label id="131"><input {...register("estaakoLiikennetta", { required: true })} type="radio" value="kylla" /> Kyllä</label>
           <label id="132"><input {...register("estaakoLiikennetta", { required: true })} type="radio" value="ei" /> Ei</label>
@@ -52,7 +53,7 @@ function FallentreeForm() {
           {watchEstaakoLiikennetta === "kylla" && (
             <div>
 
-                <label>Mitä liikennettä?</label>
+                <label className='label'>Mitä liikennettä?</label>
                     < br/>
                 <label id="141"><input {...register("mitaLiikennetta")} type="radio" value="moottoritie"/>Moottoritie</label>
                 <label id="142"><input {...register("mitaLiikennetta")} type="radio" value="maantie" />Maantie</label>
@@ -65,7 +66,7 @@ function FallentreeForm() {
               </div>
           )}
           
-          <label>Onko ihmisvahinkoa?</label>
+          <label className='label'>Onko ihmisvahinkoa?</label>
               < br/>
           <label id="151"><input {...register("ihmisvahinko", { required: true })} type="radio" value="kylla" />Kyllä</label>
           <label  id="152"><input {...register("ihmisvahinko", { required: true })} type="radio" value=" ei" />Ei</label>
@@ -75,7 +76,7 @@ function FallentreeForm() {
           {watchIhmisvahinkoa === "kylla" && (
           <div>
               
-              <label>Monta ihmistä on vahingoittunut?</label>
+              <label className='label'>Monta ihmistä on vahingoittunut?</label>
                   < br/>
               <label id="161"><input {...register("ihmistenlkm")} type="radio" value="1" />1</label>
               <label id="162"><input {...register("ihmistenlkm")} type="radio" value=" 2" />2</label>
@@ -84,7 +85,7 @@ function FallentreeForm() {
                   <br />
                   <br />
 
-                  <label>Millaista vahinkoa?</label>
+                  <label className='label'>Millaista vahinkoa?</label>
                   < br/>
               <label id="171" ><input {...register("mitaVahinkoa")} type="radio" value="lieva"/>Lievästi loukkaantunut</label>
               <label id="172"><input {...register("mitaVahinkoa")} type="radio" value=" vakava" />Vakavasti loukkaantunut</label>
@@ -94,7 +95,7 @@ function FallentreeForm() {
                   <br />
           </div>
           )}
-          <input type="submit" />
+          <input className='submit' type="submit" />
         </form>
       );
     
