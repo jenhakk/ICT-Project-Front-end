@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
 import useFormPersist from 'react-hook-form-persist';
+import '../App.css';
 
 function ShopliftingForm() {
     const [formData, saveFormData] = useState();
@@ -21,9 +22,9 @@ function ShopliftingForm() {
 
       
       return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className='form' onSubmit={handleSubmit(onSubmit)}>
 
-            <label>Onko väkivallan uhkaa?</label>
+            <label className='label'>Onko väkivallan uhkaa?</label>
                 < br/>
             <label id="211" ><input {...register("vakivallanUhka")} type="radio" value="kylla" />Kyllä</label>
             <label id="212"><input {...register("vakivallanUhka")} type="radio" value="ei" />Ei</label>
@@ -35,7 +36,7 @@ function ShopliftingForm() {
                     <div>
                         
                    
-                    <label>Onko henkilövahinkoa?</label>
+                    <label className='label'>Onko henkilövahinkoa?</label>
                         < br/>
                     <label id="221" ><input {...register("ihmisVahinkoa")} type="radio" value="kylla" />Kyllä</label>
                     <label id="222"><input {...register("ihmisVahinkoa")} type="radio" value="ei" />Ei</label>
@@ -44,7 +45,7 @@ function ShopliftingForm() {
                         {watchIhmisvahinkoa === "kylla" && (
 
                     <div>
-                        <label>Kuinka monta vahingoittunutta?</label>
+                        <label className='label'>Kuinka monta vahingoittunutta?</label>
                         < br/>
                         <label id="231"><input {...register("vahingoittunutlkm")} type="radio" value="1" />1</label>
                         <label id="232"><input {...register("vahingoittunutlkm")} type="radio" value="2" />2</label>
@@ -53,7 +54,7 @@ function ShopliftingForm() {
                             <br />
                             <br />
                         
-                        <label>Minkälaista vahinkoa?</label>
+                        <label className='label'>Minkälaista vahinkoa?</label>
                             < br/>
                         <label id="241"><input {...register("vahinko", { required: true })} type="radio" value="lieva" />Lievästi vahingoittunut</label>
                         <label id="242"><input {...register("vahinko", { required: true })} type="radio" value="vakava" />Vakavasti vahingoittunut</label>
@@ -64,7 +65,7 @@ function ShopliftingForm() {
 
                     </div>)}
                     
-                    <label>Onko asetta?</label>
+                    <label className='label'>Onko asetta?</label>
                         < br/>
                     <label  id="251"><input {...register("ase")} type="radio" value="tera" />Teräase</label>
                     <label id="252"><input {...register("ase")} type="radio" value="ampuma" />Ampuma-ase</label>
@@ -77,7 +78,7 @@ function ShopliftingForm() {
                     </div>
                     
                 )}
-                <label>Onko tekijä tiedossa?</label>
+                <label className='label'>Onko tekijä tiedossa?</label>
                     < br/>
                 <label id="261"><input {...register("tekijaTiedossa")} type="radio" value="kylla" />Kyllä</label>
                 <label id="262"><input {...register("tekijaTiedossa")} type="radio" value="ei" />Ei</label>
@@ -87,7 +88,7 @@ function ShopliftingForm() {
                     {watchTekijatiedossa === "kylla" && (
 
                     <div>
-                        <label>Kuinka monta tekijää?</label>
+                        <label className='label'>Kuinka monta tekijää?</label>
                         < br/>
                         <label id="271"><input {...register("tekijoidenlkm")} type="radio" value="1" />1</label>
                         <label id="272"><input {...register("tekijoidenlkm")} type="radio" value="2" />2</label>
@@ -96,7 +97,7 @@ function ShopliftingForm() {
                             <br />
                             <br />
                         
-                        <label>Onko tekijä paikalla?</label>
+                        <label className='label'>Onko tekijä paikalla?</label>
                             < br/>
                         <label id="281"><input {...register("tekijaPaikalla", { required: true })} type="radio" value="kylla" />Kyllä</label>
                         <label id="282"><input {...register("tekijaPaikalla", { required: true })} type="radio" value="ei" />Ei</label>
@@ -109,7 +110,7 @@ function ShopliftingForm() {
 
     
          
-          <input type="submit" />
+          <input className='submit' type="submit" />
         </form>
       );
     
