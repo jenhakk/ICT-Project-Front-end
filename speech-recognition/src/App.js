@@ -64,11 +64,25 @@ function App() {
 
   const addKeywordsToList = (id) => {
     console.log("id ", id);
-    console.log("lista ", foundWords);
-    if(id != null)  {
-
+    console.log("lista ", foundWords.length);
+    var lastElement = foundWords[foundWords.length-1];
+    console.log("last ", lastElement);
+    
+    if(id != null) {
+      if (arrayEquals(lastElement, id) == true) {
+        console.log("tadaa");
+      } else {
       addFoundWords(foundWords=> [...foundWords, id]);
+    } 
+    }       
   };
+
+
+function arrayEquals(a, b) {
+  return Array.isArray(a) &&
+      Array.isArray(b) &&
+      a.length === b.length &&
+      a.every((val, index) => val === b[index]);
 }
 
   //Fetching String data from backend
@@ -130,7 +144,7 @@ function App() {
         if (labelIds[i].id === id) {
           // console.log("onko oikea", labelIds[i].id)
           
-          labelIds[i].style.backgroundColor = "red";
+          labelIds[i].style.backgroundColor = '#98E78A';
         }
         }
       };
