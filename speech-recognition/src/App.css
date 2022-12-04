@@ -1,15 +1,10 @@
 .App {
   text-align: center;
   align-items: center;
-
- 
-
 }
 
 .top-content {
-
  margin-bottom: 20px;
-
 }
 
 .buttons {
@@ -23,19 +18,25 @@
 .button {
   height:40px;
   padding:10px;
-  width:150px;
+  width:150px, ;
   border-radius: 5px;
   border: 2px solid #98E78A;
   background-color: white;
   font-size: 16px;
+}
+.button:hover {background-color: rgb(217, 250, 207)}
 
+.submit:active {
+  background-color: #98E78A;
+  box-shadow: 0 1px #666;
+  transform: translateY(2px);
 }
 
 .form {
   background-color: white;
   padding:25px;
   border-radius:10px;
-  font-size: 17px;
+  font-size: 17px;   
   
 }
 .label{
@@ -51,19 +52,28 @@
   background-color: #79D2F3;
   font-size: 16px;
 }
+.submit:hover {background-color: #51c2eb}
+
+.submit:active {
+  background-color: #51c2eb;
+  box-shadow: 0 1px #666;
+  transform: translateY(2px);
+}
 .bottom-content {
-  justify-content: space-evenly;
+  justify-content:space-evenly;
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
 }
-ul{
+ul {
   border: 1px solid black;
   background-color: white;
- 
+  padding: 10px;
+
 }
+
 li {
-  list-style: none;
- 
+list-style: none;
+
 }
 

@@ -7,13 +7,13 @@ function ShopliftingForm() {
     const [formData, saveFormData] = useState();
     const { register, handleSubmit, watch, setValue} = useForm();
     
-    const onSubmit = data => {saveFormData(data)};
+    const onSubmit = data => {saveFormData(data);sessionStorage.clear();}
     console.log("Submitted data ",formData);
 
     useFormPersist("storageKey", {
       watch, 
       setValue,
-      storage: window.localStorage, // default window.sessionStorage
+      storage: window.sessionStorage, // default window.sessionStorage
     });
     
     const watchVakivallanUhka = watch("vakivallanUhka");
@@ -110,7 +110,7 @@ function ShopliftingForm() {
 
     
          
-          <input className='submit' type="submit" />
+          <input onSubmit={sessionStorage.clear()}className='submit' type="submit" />
         </form>
       );
     
