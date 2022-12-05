@@ -33,7 +33,7 @@ function App() {
    const interval = setInterval(() => {
       fetchData();  
 
-    }, 3000); 
+    }, 1000); 
     return () => {
       clearInterval(interval);
     }
