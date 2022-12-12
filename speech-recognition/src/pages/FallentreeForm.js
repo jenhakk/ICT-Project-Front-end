@@ -3,23 +3,27 @@ import { useForm } from 'react-hook-form';
 import useFormPersist from 'react-hook-form-persist';
 import '../App.css';
 
-
+//Form for Fallentree created with react-hook-form
 function FallentreeForm() {
   
+    //State for form's data
     const [formData, saveFormData] = useState();
+    //Variables for useForm()
     const { register, handleSubmit, watch, setValue} = useForm();
-      
+    
+    //When submitting form, data is saved and sessionStorage is cleared
     const onSubmit = data => {saveFormData(data);sessionStorage.clear();}
     
     console.log("Submitted data ",formData);
 
+    //Saving form to sessionStorage
     useFormPersist("storageKey", {
       watch, 
       setValue,
       storage: window.sessionStorage, // default window.sessionStorage
     });
 
-
+    //Watching questions with subquestions
     const watchEstaakoLiikennetta = watch("estaakoLiikennetta");
     const watchIhmisvahinkoa = watch("ihmisvahinko");
       
